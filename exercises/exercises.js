@@ -134,3 +134,73 @@ console.log(extractCharFromString("stringsatd"));
  * ....
  * ""
  */
+
+/**
+ * Funkcija koja provjerava je li prvi i zadnji znak stringa jednak (funkcija prima string), vraća true ako je, inače vraća false.
+ */
+const testStr = "aaabbvbab"
+
+// const isFirstLastCharEqual = (str) => {
+//     let firstChar = str[0];
+//     let lastChar = str[str.length - 1];
+//     if(firstChar === lastChar) return true; 
+//     return false;
+// }
+
+const isFirstLastCharEqual = (str) => {
+       return str[0] === str[str.length-1];
+    }
+
+
+console.log(isFirstLastCharEqual(testStr)) // => true
+
+
+/**
+ * Funkcija koja prima broj(number) i potenciju(number), a vraća broj na potenciju
+ */
+
+
+const potenciranje = (broj, potencija) => {
+    return broj ** potencija;
+}
+
+console.log(potenciranje(2,2));
+
+/**
+ * Write a JavaScript program to converts a specified number to an array of digits 240 => [2,4,0]
+ */
+
+const numSplit = (number) => {
+    let array = []
+    let numString = String(number);
+    for(let num = 0; num < numString.length; num++){
+        array.push(numString[num]);
+         
+    } return array.map((i) => parseInt(i));
+}
+
+console.log(numSplit(240));
+
+const numSplitV2 = (number) => [...`${number}`].map(i => parseInt(i));
+
+console.log(numSplitV2(240));
+
+/**
+ * Napiši funkciju koja prima start i end broj,a za rezultat vraća [start .... end]
+ */
+
+const rangeBetween = (start, end) => {
+    let rangeList = []
+    let newStart = start;
+    let newEnd = end;
+    if(start > end){
+        newStart = end;
+        newEnd = start;
+    } 
+    for(let i = newStart; i <= newEnd; i++){
+        rangeList.push(i);
+        
+    } return rangeList;
+}
+
+console.log(rangeBetween(1,5));
