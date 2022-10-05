@@ -254,7 +254,7 @@ if(numNeighbours === 1) {
     console.log('More than 1!');
 } else {
     console.log('No borders!');
-}*/
+}
 
 // logical operators
 
@@ -282,6 +282,88 @@ if(hasDriversLicense && hasGoodVision && !isTired) {
 } else {
     console.log('Someone else should drive...');
 }
+
+const dolphinsAverage = (96+108+89)/3
+console.log(dolphinsAverage);
+const koalasAverage = (88+91+110)/3
+console.log(koalasAverage);
+let minimumScore = 100;
+
+if (dolphinsAverage < koalasAverage && koalasAverage >= 100) {
+    console.log('Koalas win!');
+}  else if (dolphinsAverage === koalasAverage && dolphinsAverage >= 100 && koalasAverage >= 100) {
+    console.log("It's a tie");    
+}  else if (dolphinsAverage > koalasAverage && dolphinsAverage >= 100)  {
+    console.log('Dolphins win!');
+}  else {
+    console.log('No one wins the trophy!');
+}
+
+const day = 'sunday';
+
+switch(day) {
+    case 'monday': // day === 'monday'
+        console.log('Plan course structure');
+        console.log('Go to coding meetup');
+        break;
+    case 'tuesday':
+        console.log('Prepare theory videos');
+        break;
+    case 'wednesday':
+    case 'thursday':
+        console.log('Write code examples');
+        break;
+    case 'friday':
+        console.log('Record videos');
+        break;
+    case 'saturday':
+    case 'sunday':
+        console.log('Enjoy the weekend');
+        break;
+    default:
+        console.log('Not a valid day!');
+}
+
+if (day === 'monday') {
+    console.log('Plan course structure');
+    console.log('Go to coding meetup');
+} else if (day === 'tuesday') {
+    console.log('Prepare theory videos');
+} else if (day === 'wednesday' || day === 'thursday') {
+    console.log('Write code examples');
+} else if (day === 'friday') {
+    console.log('Record videos');
+} else if (day === 'saturday' || day === 'sunday') {
+    console.log('Enjoy the weekend');
+} else {
+    console.log('Not a valid day!');
+}
+
+const age = 23;
+age >= 18 ? console.log('I like to drink wine') : 
+console.log('I like to drink water');
+
+const drink = age >= 18 ? 'wine' : 'water';
+console.log(drink);
+
+let drink2;
+if(age >= 18) {
+    drink2 = 'wine';
+} else {
+    drink2 = 'water';
+} 
+console.log(drink2);
+
+console.log(`I like to drink ${age >= 18 ? 'wine' : 'water'} `);
+
+// coding challenge #4
+
+const billValue = 275;
+const tip = billValue >= 50 && billValue <= 300 ? billValue * 0.15 : billValue * 0.20;
+console.log(tip); 
+
+console.log(`The bill was ${billValue}, the tip was ${tip} and the total value ${billValue + tip}.`);*/
+
 
 
 
