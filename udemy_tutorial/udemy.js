@@ -451,5 +451,228 @@ const fruitProcessor = (apples, oranges) => {
     return juice;
 }
 
-console.log(fruitProcessor(2,3));*/
+console.log(fruitProcessor(2,3));
 
+const calcAge = function(birthYear) {
+    return 2037 - birthYear;
+}
+
+const yearsUntilRetirement = function (birthYear, firstName) {
+    const age = calcAge(birthYear);
+    const retirement = 65 -age;
+    if(retirement > 0) {
+        console.log(`${firstName} retires in ${retirement} years.`);
+        return retirement;
+    } else {
+        console.log(`${firstName} has already retired`);
+        return -1;
+    }
+    // return `${firstName} retires in ${retirement} years.`;
+    
+} 
+
+console.log(yearsUntilRetirement(1991, 'Jonas'));
+console.log(yearsUntilRetirement(1950, 'Mike'));
+
+const calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
+
+let scoreDolphins = calcAverage(44, 23, 71);
+let scoreKoalas = calcAverage(85, 54, 41);
+
+let scoreDolphins2 = calcAverage(85, 54, 41);
+let scoreKoalas2 = calcAverage(23, 34, 27);
+
+
+const checkWinner = (scoreDolphins2, scoreKoalas2) => {
+    if (scoreDolphins2 >= scoreKoalas2 * 2) {
+        console.log(`Dolphins win (${scoreDolphins2} vs. ${scoreKoalas2})`);
+    } else if (scoreKoalas2 >= scoreDolphins2 * 2) {
+        console.log(`Koalas win (${scoreKoalas2} vs. ${scoreDolphins2})`);
+    } else {
+        console.log('Draw.');
+    }
+}
+
+console.log(44+23+71, 85+54+41);
+
+console.log(checkWinner(scoreDolphins2, scoreKoalas2));
+
+const friend1 = 'Michael';
+const friend2 = 'Steven';
+const friend3 = 'Peter';
+
+const friends = ['Michael', 'Steven', 'Peter'];
+
+const years = new Array(1991, 1984, 2008, 2020);
+
+console.log(friends[2]);
+
+console.log(friends.length);
+console.log(friends[friends.length - 1]);
+
+friends[2] = 'Jay';
+console.log(friends);
+
+const firstName = 'Jonas';
+const jonas = [firstName, 'Schmedtmann', 2037 - 1991, 'teacher', friends];
+console.log(jonas);
+console.log(jonas.length);
+
+// exercise
+const calcAge = function (birthYear) {
+    return 2037 - birthYear;
+}
+
+const years1 = [1990, 1967, 2002, 2010, 2018];
+
+const age1 = calcAge(years[0]);
+const age2 = calcAge(years[1]);
+const age3 = calcAge(years[years.length - 1]);
+console.log(age1, age2, age3);
+
+const ages = [calcAge(years[0]), calcAge(years[1]), calcAge(years[years.length - 1])];
+console.log(ages);
+
+const friends = ['Michael', 'Steven', 'Peter'];
+// add elements
+const newLength = friends.push ('Jay');
+console.log(newLength);
+console.log(friends);
+
+friends.unshift('John');
+console.log(friends);
+
+// remove elements
+friends.pop(); // last element of the array
+const popped = friends.pop();
+console.log(friends);
+console.log(popped);
+
+friends.shift(); //First
+console.log(friends);
+
+console.log(friends.indexOf('Steven'));
+console.log(friends.indexOf('Bob'));
+
+friends.push(23);
+console.log(friends.includes('Steven'));
+console.log(friends.includes('Bob'));
+console.log(friends.includes('23'));
+
+if (friends.includes('Steven')) {
+    console.log('You have a friend called Steven');
+}
+
+const calcTip = (bill) => {
+    if(bill >= 50 && bill <= 300) {
+        console.log(`Tip is ${bill * 0.15}`); 
+        return bill * 0.15
+    } else {
+        console.log(`Tip is ${bill * 0.2}`);
+        return bill * 0.2
+    } 
+}
+
+const bills = [125, 555, 44];
+const tips = [calcTip([bills[0]]), calcTip([bills[1]]), calcTip([bills[2]])];
+const total = [bills[0]+tips[0], bills[1]+tips[1], bills[2]+tips[2]];
+console.log(total);
+console.log(tips);
+
+const jonas = {
+    firstName: 'Jonas',
+    lastName: 'Schedtmann',
+    age: 2037 - 1991,
+    job: 'teacher',
+    friends: ['Michael', 'Peter', 'Steven']
+};
+console.log(jonas);
+
+console.log(jonas.lastName);
+console.log(jonas['lastName']);
+
+const nameKey = 'Name';
+console.log(jonas['first' + nameKey]);
+console.log(jonas['last' + nameKey]);
+
+const interestedIn = prompt('What do you want to know about Jonas? Choose between firstName, lastName, age, job and friends');
+
+if(jonas[interestedIn]) {
+    console.log(jonas[interestedIn]);
+} else {
+    console.log('Wrong request! Choose between firstName, lastName, age, job and friends')
+}
+
+jonas.location = 'Portugal';
+jonas['twitter'] = '@jonassschmedtman';
+console.log(jonas);
+
+// challenge
+
+console.log(`${jonas.firstName} has ${jonas.friends.length} friends, and his best friend is called ${jonas.friends[0]}.`)
+
+const jonas = {
+    firstName: 'Jonas',
+    lastName: 'Schedtmann',
+    birthYear: 1991,
+    job: 'teacher',
+    friends: ['Michael', 'Peter', 'Steven'],
+    hasDriversLicense: true,
+
+    // calcAge: function(birthYear) {
+    //     return 2037 - birthYear;
+    // }
+
+    // calcAge: function() {
+    //     // console.log(this);
+    //     return 2037 - this.birthYear;
+    // }
+
+    calcAge: function () {
+        this.age = 2037 - this.birthYear;
+        return this.age;
+    },
+
+    getSummary: function () {
+        console.log(`${this.firstName} is a ${this.calcAge()}-year old ${this.job} and he has ${this.hasDriversLicense ? 'a' : 'no'} driver's license.`);
+    }
+};
+
+console.log(jonas.calcAge());
+console.log(jonas.age);
+console.log(jonas.calcAge());
+jonas.getSummary();
+
+
+// console.log(jonas['calcAge'](jonas.birthYear));
+
+// challenge getSummary
+// "Jonas is a 46-year old teacher and he has a/no driver's license"*/
+
+// coding challenge 3
+
+const objMark = {
+    name: 'Mark',
+    surname: 'Miller',
+    weight: 78,
+    height: 1.69,
+    calcBMI: function () {
+        this.BMI = (this.weight/(this.height **2)).toFixed(2);
+        return this.BMI
+    }
+}
+
+const objJohn = {
+    name: 'John',
+    surname: 'Smith',
+    weight: 92,
+    height: 1.95,
+    calcBMI: function () {
+        this.BMI = (this.weight/(this.height **2)).toFixed(2);
+        return this.BMI
+    }
+}
+
+const isMark = objMark.calcBMI() > objJohn.calcBMI()
+
+console.log(`${isMark ? objMark.name + ' ' + objMark.surname : objJohn.name + ' ' + objJohn.surname}'s BMI (${isMark ? objMark.BMI : objJohn.BMI}) is higher than ${!isMark ? objMark.name + ' ' + objMark.surname : objJohn.name + ' ' + objJohn.surname}'s (${!isMark ? objMark.BMI : objJohn.BMI})!`);
