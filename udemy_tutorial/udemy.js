@@ -647,7 +647,7 @@ jonas.getSummary();
 // console.log(jonas['calcAge'](jonas.birthYear));
 
 // challenge getSummary
-// "Jonas is a 46-year old teacher and he has a/no driver's license"*/
+// "Jonas is a 46-year old teacher and he has a/no driver's license"
 
 // coding challenge 3
 
@@ -676,3 +676,116 @@ const objJohn = {
 const isMark = objMark.calcBMI() > objJohn.calcBMI()
 
 console.log(`${isMark ? objMark.name + ' ' + objMark.surname : objJohn.name + ' ' + objJohn.surname}'s BMI (${isMark ? objMark.BMI : objJohn.BMI}) is higher than ${!isMark ? objMark.name + ' ' + objMark.surname : objJohn.name + ' ' + objJohn.surname}'s (${!isMark ? objMark.BMI : objJohn.BMI})!`);
+
+
+// console.log('Lifting weights repetition 1');
+
+// for loop keeps running while condition is TRUE
+for(let rep = 1; rep <= 10; rep++) {
+    console.log(`Lifting weights repetition ${rep}`);
+}
+
+const jonas = ['Jonas', 'Schmedtmann', 2037 - 1991, 'teacher', ['Michael', 'Peter', 'Steven'], true];
+
+const types = [];
+for(let i = 0; i < jonas.length; i++) {
+    // reading from jonas array
+    console.log(jonas[i], typeof jonas[i]);
+    // filling types arary
+    // types[i] = typeof jonas[i]; 
+    types.push(typeof jonas[i]);
+}
+
+console.log(types);
+
+const years = [1991, 2007, 1969, 2020];
+const age = [];
+
+for(let i = 0; i < years.length; i++) {
+    // age[i] = 2037 - years[i];
+    // or
+    age.push(2037 - years[i]);
+}
+
+console.log(age);
+
+// continue and break statements
+
+console.log('--- ONLY STRINGS ---');
+for(let i = 0; i < jonas.length; i++) {
+    if(typeof jonas[i] !== 'string') continue;
+    console.log(jonas[i], typeof jonas[i]);
+}
+
+console.log('--- BREAK WHEN NUMBER ---');
+for(let i = 0; i < jonas.length; i++) {
+    if(typeof jonas[i] === 'number') break;
+    console.log(jonas[i], typeof jonas[i]);
+}
+
+// loop backwards
+
+const jonas = ['Jonas', 'Schmedtmann', 2037 - 1991, 'teacher', ['Michael', 'Peter', 'Steven'], true];
+
+for(let i = jonas.length - 1; i >= 0; i--) {
+    console.log(i, jonas[i]);
+}
+
+for(let exercise = 1; exercise <= 3; exercise++) {
+    console.log(`-------Starting exercise ${exercise}`);
+    for(let rep = 1; rep <= 5; rep++) {
+        console.log(`Exercise ${exercise}: Lifting weight repetition ${rep}`);
+    }
+}
+
+for(let rep = 1; rep <= 10; rep++) {
+    console.log(`Lifting weights repetition ${rep}`);
+}
+
+let rep = 1;
+while(rep <= 10) {
+    console.log(`WHILE: Lifting weights repetition ${rep}`)
+    rep++
+}
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+console.log(dice);
+
+while (dice !== 6) {
+    console.log(`You rolled a ${dice}`);
+    dice = Math.trunc(Math.random() * 6) + 1;
+    if (dice === 6) console.log('Loop is about to end...');
+}*/
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
+
+const calcTip = (bill) => {
+    if(bill >= 50 && bill <= 300) {
+        return bill * 0.15
+    } else {
+        return bill * 0.2
+    } 
+}
+
+for (let billIndex = 0; billIndex < bills.length - 1; billIndex++) {
+    tips.push(calcTip(bills[billIndex])); 
+    totals.push(tips[billIndex] + bills[billIndex]);
+} 
+console.log(tips);
+console.log(totals);
+
+const calcAverage = (arr) => {
+    let arrSum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        arrSum += arr[i];
+    }
+    return arrSum / arr.length 
+}
+
+console.log(calcAverage(bills));
+
+
+
+
